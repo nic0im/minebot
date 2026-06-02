@@ -27,9 +27,19 @@ public class ModKeyBinds {
             "key.categories.examplemod"
     );
 
+    public static final KeyMapping toogleAutoMineBot = new KeyMapping(
+            "key.examplemod.togglerailbot",
+            KeyConflictContext.IN_GAME,
+            KeyModifier.CONTROL,
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_3,
+            "key.categories.examplemod"
+    );
+
     public static void register(RegisterKeyMappingsEvent event) {
         event.register(TEST_KEY);
         event.register(toogleRailBot);
+        event.register(toogleAutoMineBot);
     }
 
 }

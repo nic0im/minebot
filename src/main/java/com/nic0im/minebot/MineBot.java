@@ -1,4 +1,5 @@
 package com.nic0im.minebot;
+import com.nic0im.minebot.Bots.AutoMineBot;
 import com.nic0im.minebot.Bots.RailBot;
 import com.nic0im.minebot.Bots.TreeBot;
 import com.nic0im.minebot.modKeyBinds.ModKeyBinds;
@@ -82,12 +83,15 @@ public class MineBot {
                 TreeBot.toggle();
             }else if (ModKeyBinds.toogleRailBot.consumeClick()) {
                 RailBot.toggle();
+            }else if(ModKeyBinds.toogleAutoMineBot.consumeClick()){
+                AutoMineBot.toggle();
             }
 
             // Bot update
             TreeBot.tick();
-
             RailBot.tick();
+            AutoMineBot.tick();
+
         }
     }
 }
