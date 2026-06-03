@@ -15,7 +15,7 @@ public class BlockScannerUtils {
         Direction right = forward.getClockWise();
 
         for (int distance = 1; distance <= 2; distance++) {
-            for (int y = 1; y <= 3; y++) {
+            for (int y = 0; y <= 2; y++) {
                 for (int width = -1; width <= 1; width++) {
 
                     BlockPos pos = center

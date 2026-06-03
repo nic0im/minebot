@@ -2,8 +2,8 @@ package com.nic0im.minebot.Bots;
 
 import com.nic0im.minebot.Enums.BotState;
 
-import static com.nic0im.minebot.handlers.RailBotActions.handleLooking;
-import static com.nic0im.minebot.handlers.RailBotActions.handlePlacing;
+import static com.nic0im.minebot.handlers.MineBotActions.*;
+
 
 public class AutoMineBot {
 
@@ -17,7 +17,7 @@ public class AutoMineBot {
 
         if (enabled) {
 
-            currentState = BotState.LOOKING;
+            currentState = BotState.WALKING;
 
         }
         else {
@@ -35,13 +35,18 @@ public class AutoMineBot {
 
         switch (currentState) {
 
-            case PLACING:
+            case WALKING:
 
-                handlePlacing();
+                handleWalking();
                 break;
+
             case LOOKING:
 
                 handleLooking();
+                break;
+
+            case BREAKING:
+                handleBreaking();
                 break;
         }
     }

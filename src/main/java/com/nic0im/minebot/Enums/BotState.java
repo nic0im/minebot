@@ -13,5 +13,7 @@ public enum BotState {
 
     GROWING,
 
-    PLACING
+    PLACING,
+
+    WALKING,
 }
