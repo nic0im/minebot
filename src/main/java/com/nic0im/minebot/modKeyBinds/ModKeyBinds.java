@@ -28,7 +28,7 @@ public class ModKeyBinds {
     );
 
     public static final KeyMapping toogleAutoMineBot = new KeyMapping(
-            "key.examplemod.togglerailbot",
+            "key.examplemod.toggleAutoMineBot",
             KeyConflictContext.IN_GAME,
             KeyModifier.CONTROL,
             InputConstants.Type.KEYSYM,
