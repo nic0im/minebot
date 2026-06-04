@@ -32,9 +32,13 @@ public class MineBotActions {
 
         if(currentTarget != null){
             mc.options.keyUp.setDown(false);
+            mc.options.keyAttack.setDown(true);
+            mc.options.keySprint.setDown(false);
             AutoMineBot.currentState = BotState.LOOKING;
         }else {
             lookForward();
+            mc.options.keyAttack.setDown(false);
+            mc.options.keySprint.setDown(true);
             mc.options.keyUp.setDown(true);
         }
 
@@ -53,7 +57,7 @@ public class MineBotActions {
 
         BlockState state = mc.level.getBlockState(currentTarget);
 
-        AutoMineBot.currentState = BotState.BREAKING;
+        AutoMineBot.currentState = BotState.WALKING;
         /*if (state.is(Blocks.OAK_LOG)) {
 
         }*/
