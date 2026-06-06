@@ -74,14 +74,12 @@ public class RotationUtils {
         RotationUtils.lookAt(plantPos);
     }
 
-    public static void lookForward() {
+    public static void lookDirection(Direction dir) {
         Minecraft mc = Minecraft.getInstance();
 
         if (mc.player == null) {
             return;
         }
-
-        Direction dir = mc.player.getDirection();
 
         float yaw = switch (dir) {
             case SOUTH -> 0F;
@@ -92,6 +90,19 @@ public class RotationUtils {
         };
 
         mc.player.setYRot(yaw);
-        mc.player.setXRot(0F); // look straight ahead horizontally
+        mc.player.setXRot(0F);
     }
+
+    public static void lookRight() {
+        Minecraft mc = Minecraft.getInstance();
+
+        if (mc.player == null) {
+            return;
+        }
+
+        Direction right = mc.player.getDirection().getClockWise();
+        lookDirection(right);
+    }
+
+
 }

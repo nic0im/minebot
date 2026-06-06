@@ -9,8 +9,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;
 
-import static com.nic0im.minebot.Utils.BlockScannerUtils.findBlock;
-import static com.nic0im.minebot.Utils.RotationUtils.lookForward;
+import static com.nic0im.minebot.Utils.BlockScannerUtils.*;
+import static com.nic0im.minebot.Utils.RotationUtils.*;
 
 public class MineBotActions {
 
@@ -29,14 +29,19 @@ public class MineBotActions {
         Direction forward = mc.player.getDirection();
 
         currentTarget = findBlock(mc.level, center, forward);
+        var lavaDetected = detectLava(mc.level, center, forward);
 
-        if(currentTarget != null){
+        if(lavaDetected){
+            lookRight();
+
+        } else if(currentTarget != null){
             mc.options.keyUp.setDown(false);
             mc.options.keyAttack.setDown(true);
             mc.options.keySprint.setDown(false);
             AutoMineBot.currentState = BotState.LOOKING;
+
         }else {
-            lookForward();
+            lookDirection(forward);
             mc.options.keyAttack.setDown(false);
             mc.options.keySprint.setDown(true);
             mc.options.keyUp.setDown(true);
