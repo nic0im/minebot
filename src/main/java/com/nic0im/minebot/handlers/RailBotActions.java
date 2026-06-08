@@ -4,14 +4,18 @@ import com.nic0im.minebot.Enums.BotState;
 import com.nic0im.minebot.Bots.RailBot;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.Vec3;
 
 import static com.nic0im.minebot.Utils.PositionsUtils.isPlayerCloseTo;
 import static com.nic0im.minebot.Utils.RotationUtils.lookYawPitch;
 
 public class RailBotActions {
 
-    private static final BlockPos halfWayTarget = new BlockPos(-5326, 3, -980);
-    private static final BlockPos startingPoint = new BlockPos(-5201, 3, -983);
+    private static final Vec3 halfWayTarget =
+            new Vec3(-5326.5, 3.0, -979.5);
+
+    private static final Vec3 startingPoint =
+            new Vec3(-5200.5, 3.0, -982.5);
 
     private static int placingTicks = 0;
     private static int round = 1;
@@ -52,14 +56,14 @@ public class RailBotActions {
 
             placingTicks = 0;
 
-            boolean halfWayCheck = isPlayerCloseTo(halfWayTarget);
-            boolean startingPointCheck = isPlayerCloseTo(startingPoint);
+            boolean halfWayCheck = isPlayerCloseTo(halfWayTarget, 5.0D);
+            boolean startingPointCheck = isPlayerCloseTo(startingPoint, 5.0D);
 
             System.out.println(halfWayCheck+" "+startingPointCheck);
 
             if (
-                    !isPlayerCloseTo(halfWayTarget) &&
-                            !isPlayerCloseTo(startingPoint)
+                    !isPlayerCloseTo(halfWayTarget, 5.0D) &&
+                            !isPlayerCloseTo(startingPoint, 5.0D)
             ) {
                 reachedTarget = false;
             }

@@ -16,4 +16,8 @@ public enum BotState {
     PLACING,
 
     WALKING,
+
+    FILLING,
+
+    ROTATING,
 }

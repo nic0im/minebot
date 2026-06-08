@@ -104,5 +104,27 @@ public class RotationUtils {
         lookDirection(right);
     }
 
+    public static void lookLeft() {
+        Minecraft mc = Minecraft.getInstance();
+
+        if (mc.player == null) {
+            return;
+        }
+
+        Direction left = mc.player.getDirection().getCounterClockWise();
+        lookDirection(left);
+    }
+
+    public static void rotate180(){
+        Minecraft mc = Minecraft.getInstance();
+
+        if (mc.player == null) {
+            return;
+        }
+
+        Direction behind = mc.player.getDirection().getClockWise().getClockWise();
+        lookDirection(behind);
+    }
+
 
 }

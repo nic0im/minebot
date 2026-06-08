@@ -36,10 +36,20 @@ public class ModKeyBinds {
             "key.categories.examplemod"
     );
 
+    public static final KeyMapping toggleAutoBrewerBot = new KeyMapping(
+            "key.examplemod.toggleAutoBrewerBot",
+            KeyConflictContext.IN_GAME,
+            KeyModifier.CONTROL,
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_4,
+            "key.categories.examplemod"
+    );
+
     public static void register(RegisterKeyMappingsEvent event) {
         event.register(TEST_KEY);
         event.register(toogleRailBot);
         event.register(toogleAutoMineBot);
+        event.register(toggleAutoBrewerBot);
     }
 
 }
