@@ -76,7 +76,7 @@ public class BrewerBotActions {
 
             case THROWING_ITEMS -> {
                 if (isBrewingStandOpen()) {
-                    ThrowItem(0);
+                    //ThrowItem(0);
                     fillState = FillState.MOVING_ITEMS;
                 } else if (++waitTicks > 20) {
                     // timeout after 1 second
@@ -91,9 +91,14 @@ public class BrewerBotActions {
                 switch (lap) {
 
                     case 0 -> {
-                        int slot = getContainerSlotByItem(Items.NETHER_WART);
+                        int slot = getContainerSlotByItem(Items.SUGAR);
+                        //int slot = getContainerSlotByItem(Items.NETHER_WART);
                         ThrowItem(0);
+                        //ThrowItem(1);
+                        //ThrowItem(2);
                         MoveOneItem(slot, 3);
+                        //
+                        rotatingCount = 0;
                     }
 
                     case 1 -> {
@@ -112,6 +117,13 @@ public class BrewerBotActions {
 
                         LOGGER.info("Finished last ingredient, implement retrieval");
                     }
+                    case 4 -> {
+                        int slot = getContainerSlotByItem(Items.NETHER_WART);
+                        ThrowItem(0);
+                        MoveOneItem(slot, 3);
+                        rotatingCount = 0;
+                    }
+
                 }
 
                 fillState = FillState.CLOSING;
@@ -149,5 +161,10 @@ public class BrewerBotActions {
         walkedBlocks++;
     }
 
+    public static void cleanUp(){
+        walkedBlocks = 0;
+        lookingTicks = 0;
+        rotatingCount = 0;
+    }
 
 }

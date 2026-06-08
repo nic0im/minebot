@@ -80,6 +80,10 @@ public class Walker {
 
     }
 
+    public static void cleanWalker(){
+        walking = false;
+        targetPos = null;
+    }
     public static boolean isWalking() {
         return walking;
     }

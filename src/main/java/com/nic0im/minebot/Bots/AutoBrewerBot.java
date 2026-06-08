@@ -2,6 +2,7 @@ package com.nic0im.minebot.Bots;
 
 import com.nic0im.minebot.Enums.BotState;
 
+import static com.nic0im.minebot.Helpers.Walker.cleanWalker;
 import static com.nic0im.minebot.handlers.BrewerBotActions.*;
 
 public class AutoBrewerBot {
@@ -15,7 +16,8 @@ public class AutoBrewerBot {
         enabled = !enabled;
 
         if (enabled) {
-
+            cleanWalker();
+            cleanUp();
             currentState = BotState.WALKING;
 
         }
