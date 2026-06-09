@@ -45,11 +45,22 @@ public class ModKeyBinds {
             "key.categories.examplemod"
     );
 
+    public static final KeyMapping toggleAutoFarmBot = new KeyMapping(
+            "key.examplemod.toggleAutoFarmBot",
+            KeyConflictContext.IN_GAME,
+            KeyModifier.CONTROL,
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_5,
+            "key.categories.examplemod"
+    );
+
+
     public static void register(RegisterKeyMappingsEvent event) {
         event.register(TEST_KEY);
         event.register(toogleRailBot);
         event.register(toogleAutoMineBot);
         event.register(toggleAutoBrewerBot);
+        event.register(toggleAutoFarmBot);
     }
 
 }

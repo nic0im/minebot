@@ -19,15 +19,9 @@ public class HotbarUtils {
             ItemStack stack =
                     mc.player.getInventory().getItem(slot);
 
-            // Check if slot contains target item
             if (stack.getItem() == targetItem) {
 
-                // Select hotbar slot
                 mc.player.getInventory().selected = slot;
-
-                System.out.println(
-                        "Selected item in slot: " + slot
-                );
 
                 return;
             }

@@ -1,8 +1,5 @@
 package com.nic0im.minebot;
-import com.nic0im.minebot.Bots.AutoBrewerBot;
-import com.nic0im.minebot.Bots.AutoMineBot;
-import com.nic0im.minebot.Bots.RailBot;
-import com.nic0im.minebot.Bots.TreeBot;
+import com.nic0im.minebot.Bots.*;
 import com.nic0im.minebot.modKeyBinds.ModKeyBinds;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
@@ -88,6 +85,8 @@ public class MineBot {
                 AutoMineBot.toggle();
             }else if(ModKeyBinds.toggleAutoBrewerBot.consumeClick()){
                 AutoBrewerBot.toggle();
+            }else if(ModKeyBinds.toggleAutoFarmBot.consumeClick()){
+                AutoFarmBot.toggle();
             }
 
             // Bot update
@@ -95,6 +94,7 @@ public class MineBot {
             RailBot.tick();
             AutoMineBot.tick();
             AutoBrewerBot.tick();
+            AutoFarmBot.tick();
 
         }
     }
