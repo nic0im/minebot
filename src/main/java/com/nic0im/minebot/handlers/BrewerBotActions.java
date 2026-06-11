@@ -91,7 +91,7 @@ public class BrewerBotActions {
                 switch (lap) {
 
                     case 0 -> {
-                        int slot = getContainerSlotByItem(Items.SUGAR);
+                        int slot = getContainerSlotByItem(Items.MAGMA_CREAM);
                         //int slot = getContainerSlotByItem(Items.NETHER_WART);
                         ThrowItem(0);
                         //ThrowItem(1);
@@ -102,7 +102,7 @@ public class BrewerBotActions {
                     }
 
                     case 1 -> {
-                        int slot = getContainerSlotByItem(Items.SUGAR);
+                        int slot = getContainerSlotByItem(Items.MAGMA_CREAM);
                         MoveOneItem(slot, 3);
                     }
 
